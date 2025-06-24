@@ -47,7 +47,7 @@ jobs:
           
       - name: IKMDEV Post Build Action
         id: ikmdev_post_build
-        uses: ikmdev/maven-post-build-action@v3.1.0
+        uses: ikmdev/maven-post-build-action@tinkar-starter-data-test 
         with:
             nexus_repo_password: ${{secrets.EC2_NEXUS_PASSWORD}}
             branch_name: ${{env.BRANCH_NAME}}
