@@ -1,0 +1,78 @@
+name: Post Build Action
+
+run-name: 'Post Build Action -- ${{github.event.workflow_run.head_branch}}'
+
+on:
+   workflow_run:
+    workflows:
+      - Build Workflow
+    types:
+      - completed
+
+permissions:
+  contents: write 
+
+env:
+  BRANCH_NAME: ${{github.event.workflow_run.head_branch}}
+
+
+jobs:
+  post-build:
+    name: Post Build Actions
+    runs-on: ubuntu-24.04
+    if: github.event.workflow_run.conclusion == 'success' && github.repository_owner == 'ikmdev'
+    outputs:
+      IS_TAG: ${{steps.ikmdev_post_build.outputs.is_tag}}
+      ARTIFACT_ID: ${{steps.artifact_id_property.outputs.ARTIFACT_ID}}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{github.event.workflow_run.head_repository.full_name}}
+          ref: ${{env.BRANCH_NAME}}
+          fetch-depth: 0
+
+      - name: Get Artifact ID Property
+        id: artifact_id_property
+        run: |
+            find . -name "pom.xml" -exec sh -c '
+            for pom; do
+              echo "Processing $pom"
+              value=$(mvn help:evaluate -Dexpression=data-artifact.artifactId -q -DforceStdout -f "$pom")
+              if [ "$value" != "null object or invalid expression" ]; then
+                echo "ARTIFACT_ID=$value" >> $GITHUB_OUTPUT
+              fi
+            done
+            ' sh {} +
+          
+      - name: IKMDEV Post Build Action
+        id: ikmdev_post_build
+        uses: ikmdev/maven-post-build-action@v3.1.0
+        with:
+            nexus_repo_password: ${{secrets.EC2_NEXUS_PASSWORD}}
+            branch_name: ${{env.BRANCH_NAME}}
+            github_token: ${{secrets.GITHUB_TOKEN}}
+            maven_central_username: ${{secrets.MC_SECRET_USERNAME}}
+            maven_central_password: ${{secrets.MC_SECRET_PASSWORD}}
+            gpg_key: ${{secrets.GPG_KEY}}
+            gpg_passphrase: ${{secrets.GPG_PASSPHRASE}}
+            sonarcloud_token: ${{ secrets.SONAR_TOKEN }}
+            sonarcloud_tests: ${{ '' }}
+
+  repository-dispatch:
+    name: Update Data Properties
+    needs: post-build
+    if: needs.post-build.outputs.IS_TAG == 'true'
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        repos: [data-properties]
+    steps:
+      - name: Trigger Repository Dispatch
+        run: |
+          curl -X POST \
+          -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token ${{secrets.IKMDEVOPS_PAT_TOKEN}}" \
+          https://api.github.com/repos/ikmdev/${{matrix.repos}}/dispatches \
+          -d '{"event_type":"tinkar-trigger","client_payload":{"artifactID": "${{needs.post-build.outputs.ARTIFACT_ID}}", "version":"${{env.BRANCH_NAME}}"}}'
+
