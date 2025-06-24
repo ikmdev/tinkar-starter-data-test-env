@@ -11,7 +11,7 @@
 		<version>1.6.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>tinkar-starter-data-pipeline</artifactId>
+	<artifactId>test-env-tinkar-starter-data-pipeline</artifactId>
 	<packaging>pom</packaging>
 
 	<name>Tinkar Starter Data Pipeline</name>
@@ -115,7 +115,7 @@
 				<plugins>
 					<plugin>
 						<groupId>dev.ikm.maven.tinkar</groupId>
-						<artifactId>tinkar-starter-data-maven-plugin</artifactId>
+						<artifactId>test-env-tinkar-starter-data-maven-plugin</artifactId>
 						<executions>
 							<!-- Load starter data into data store -->
 							<execution>

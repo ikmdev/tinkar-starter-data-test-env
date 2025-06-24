@@ -75,8 +75,8 @@
     </properties>
 
     <modules>
-        <module>tinkar-starter-data-maven-plugin</module>
-        <module>tinkar-starter-data-pipeline</module>
+        <module>test-env-tinkar-starter-data-maven-plugin</module>
+        <module>test-env-tinkar-starter-data-pipeline</module>
     </modules>
 
     <dependencyManagement>
@@ -184,7 +184,7 @@
             <plugins>
                 <plugin>
                     <groupId>dev.ikm.maven.tinkar</groupId>
-                    <artifactId>tinkar-starter-data-maven-plugin</artifactId>
+                    <artifactId>test-env-tinkar-starter-data-maven-plugin</artifactId>
                     <version>${project.version}</version>
                 </plugin>
                 <plugin>
