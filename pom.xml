@@ -9,8 +9,8 @@
         <version>1.63.0</version>
     </parent>
 
-    <groupId>dev.ikm.maven.tinkar-test-env</groupId>
-    <artifactId>tinkar-starter-data-parent-test-env</artifactId>
+    <groupId>dev.ikm.maven.tinkar.test-env</groupId>
+    <artifactId>tinkar-starter-data-parent</artifactId>
     <version>1.6.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -75,8 +75,8 @@
     </properties>
 
     <modules>
-        <module>test-env-tinkar-starter-data-maven-plugin</module>
-        <module>test-env-tinkar-starter-data-pipeline</module>
+        <module>tinkar-starter-data-maven-plugin</module>
+        <module>tinkar-starter-data-pipeline</module>
     </modules>
 
     <dependencyManagement>
@@ -184,7 +184,7 @@
             <plugins>
                 <plugin>
                     <groupId>dev.ikm.maven.tinkar</groupId>
-                    <artifactId>test-env-tinkar-starter-data-maven-plugin</artifactId>
+                    <artifactId>tinkar-starter-data-maven-plugin</artifactId>
                     <version>${project.version}</version>
                 </plugin>
                 <plugin>
@@ -270,4 +270,3 @@
         </profile>
     </profiles>
 </project>
-

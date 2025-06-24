@@ -6,20 +6,20 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>dev.ikm.maven.tinkar-test-env</groupId>
-		<artifactId>tinkar-starter-data-parent-test-env</artifactId>
+		<groupId>dev.ikm.maven.tinkar.test-env</groupId>
+		<artifactId>tinkar-starter-data-parent</artifactId>
 		<version>1.6.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>test-env-tinkar-starter-data-pipeline</artifactId>
+	<artifactId>tinkar-starter-data-pipeline</artifactId>
 	<packaging>pom</packaging>
 
 	<name>Tinkar Starter Data Pipeline</name>
 	<description>Tinkar Starter Data Pipeline Project</description>
 	
 	<properties>
-		<data-artifact.groupId>dev.ikm.data.tinkar-test-env</data-artifact.groupId>
-		<data-artifact.artifactId>tinkar-starter-data-test-env</data-artifact.artifactId>
+		<data-artifact.groupId>dev.ikm.data.tinkar.test-env</data-artifact.groupId>
+		<data-artifact.artifactId>tinkar-starter-data</data-artifact.artifactId>
 		<data-artifact.version>${project.version}</data-artifact.version>
 		<!-- Properties for Ease of Use -->
 		<data-artifact.prefix>${data-artifact.artifactId}-${data-artifact.version}</data-artifact.prefix>
@@ -115,7 +115,7 @@
 				<plugins>
 					<plugin>
 						<groupId>dev.ikm.maven.tinkar</groupId>
-						<artifactId>test-env-tinkar-starter-data-maven-plugin</artifactId>
+						<artifactId>tinkar-starter-data-maven-plugin</artifactId>
 						<executions>
 							<!-- Load starter data into data store -->
 							<execution>
