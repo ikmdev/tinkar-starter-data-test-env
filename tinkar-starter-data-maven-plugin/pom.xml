@@ -66,27 +66,27 @@
 
     <build>
         <plugins>
-            <plugin>
+            <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-plugin-plugin</artifactId>
                 <executions>
                  <skip>true</skip>
                     <execution>
-                        <!-- <skip>true</skip> -->
+                        <skip>true</skip>
                         <id>mojo-descriptor</id>
                         <goals>
                             <goal>descriptor</goal>
                         </goals>
                     </execution>
                     <execution>
-                        <!-- <skip>true</skip> -->
+                        <skip>true</skip>
                         <id>help-goal</id>
                         <goals>
                             <goal>helpmojo</goal>
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> -->
         </plugins>
     </build>
 
