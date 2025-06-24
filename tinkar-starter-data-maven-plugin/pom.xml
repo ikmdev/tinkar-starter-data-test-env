@@ -71,14 +71,12 @@
                 <artifactId>maven-plugin-plugin</artifactId>
                 <executions>
                     <execution>
-                        <skip>true</skip>
                         <id>mojo-descriptor</id>
                         <goals>
                             <goal>descriptor</goal>
                         </goals>
                     </execution>
                     <execution>
-                        <skip>true</skip>
                         <id>help-goal</id>
                         <goals>
                             <goal>helpmojo</goal>
