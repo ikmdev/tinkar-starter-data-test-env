@@ -114,7 +114,7 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>dev.ikm.maven.tinkar</groupId>
+						<groupId>dev.ikm.maven.tinkar.test-env</groupId>
 						<artifactId>tinkar-starter-data-maven-plugin</artifactId>
 						<executions>
 							<!-- Load starter data into data store -->
