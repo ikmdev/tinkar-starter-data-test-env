@@ -9,7 +9,7 @@
         <version>1.6.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>tinkar-starter-data-maven-plugin-test-env</artifactId>
+    <artifactId>test-env-tinkar-starter-data-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
 
     <name>Tinkar Starter Data Maven Plugin</name>
