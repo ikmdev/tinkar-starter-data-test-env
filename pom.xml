@@ -72,7 +72,7 @@
         <!-- Templating Plugin Version-->
         <templating-maven-plugin.version>3.0.0</templating-maven-plugin.version>
         <builder-helper-maven-plugin.version>3.6.0</builder-helper-maven-plugin.version>
-        <maven-central-staging.url>https://central.sonatype.com/publishing</maven-central-staging.url>
+        <maven-central-staging.url>https://central.sonatype.com</maven-central-staging.url>
     </properties>
 
     <modules>
