@@ -290,7 +290,7 @@
 				</plugins>
 			</build>
 		</profile>
-		<profile>
+		<!-- <profile>
 			<id>deployReleaseDataArtifacts</id>
 			<activation>
 				<property>
@@ -321,13 +321,14 @@
 									<files>${deploymentFiles}</files>
 									<classifiers>${deploymentClassifiers}</classifiers>
 									<types>${deploymentTypes}</types>
+									<pomFile></pomFile>
 								</configuration>
 							</execution>
 						</executions>
 					</plugin>
 				</plugins>
 			</build>
-		</profile>
+		</profile> -->
 		<profile>
 			<!-- Get the Repo URL from the altDeploymentRepository -->
 			<id>altDeployRepo</id>
