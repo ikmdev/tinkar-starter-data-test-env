@@ -25,12 +25,19 @@
     <developers>
         <!-- OSSRH Related Developer (Start) -->
           <developer>
-            <id>ikmdev</id>
-            <name>IKM Development Team</name>
-            <email>support@ikm.dev</email>
+	    <name>IKM Development Team</name>
+	    <email>support@ikm.dev</email>
+            <organization>ikmdev</organization>
+            <organizationUrl>https://www.ikm.dev/</organizationUrl>
         </developer>
         <!-- OSSRH Related Developer (End) -->
     </developers>
+
+
+<!--     <organization>
+        <name>Integrated Knowledge Management</name>
+        <url>http://www.ikm.dev</url>
+    </organization> -->
 
     <scm>
         <url>${project.scm.url}</url>
