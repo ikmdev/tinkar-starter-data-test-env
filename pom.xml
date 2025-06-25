@@ -72,6 +72,7 @@
         <!-- Templating Plugin Version-->
         <templating-maven-plugin.version>3.0.0</templating-maven-plugin.version>
         <builder-helper-maven-plugin.version>3.6.0</builder-helper-maven-plugin.version>
+        <maven-central-staging.url>https://central.sonatype.com/publishing</maven-central-staging.url>
     </properties>
 
     <modules>
@@ -267,6 +268,34 @@
                 <repositoryId>local-release</repositoryId>
                 <deployRepositoryUrl>file:${project.build.directory}/local_deploy_repo/snapshot</deployRepositoryUrl>
             </properties>
+        </profile>
+        <profile>
+            <id>stageMavenCentralRepository</id>
+
+            <activation>
+                <property>
+                    <name>repositoryIdMavenCentralRepository</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <build>
+                <plugins>
+
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <publishingServerId>central</publishingServerId>
+                            <autoPublish>false</autoPublish>
+                            <waitUntil>published</waitUntil>
+                            <centralBaseUrl>${maven-central-staging.url}</centralBaseUrl>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>

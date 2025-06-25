@@ -27,7 +27,7 @@
 		<deploymentFiles>${project.basedir}/pom.xml,${data-artifact.path-prefix}-unreasoned-sa.zip,${data-artifact.path-prefix}-reasoned-sa.zip,${data-artifact.path-prefix}-unreasoned-pb.zip,${data-artifact.path-prefix}-reasoned-pb.zip</deploymentFiles>
 		<deploymentClassifiers>pipeline,unreasoned-sa,reasoned-sa,unreasoned-pb,reasoned-pb</deploymentClassifiers>
 		<deploymentTypes>xml,zip,zip,zip,zip</deploymentTypes>
-		<maven-central-staging.url>https://central.sonatype.com/publishing</maven-central-staging.url>
+		
 	</properties>
 
 	<build>
