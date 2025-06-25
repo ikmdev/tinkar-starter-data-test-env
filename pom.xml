@@ -43,7 +43,7 @@
     </developers>
 
     <scm>
-        <url>http://www.github.com/ikmdev/tinkar-starter-data</url>
+        <url>http://www.github.com/ikmdev/tinkar-starter-data-test-env</url>
     </scm>
 
     <properties>
