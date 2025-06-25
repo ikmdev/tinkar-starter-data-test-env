@@ -11,7 +11,7 @@
 
     <groupId>dev.ikm.maven.tinkar.test-env</groupId>
     <artifactId>tinkar-starter-data-parent</artifactId>
-    <version>1.6.2-SNAPSHOT</version>
+    <version>1.6.2</version>
     <packaging>pom</packaging>
 
     <name>Tinkar Starter Data Parent</name>
