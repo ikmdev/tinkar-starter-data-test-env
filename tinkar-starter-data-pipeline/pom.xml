@@ -24,10 +24,9 @@
 		<!-- Properties for Ease of Use -->
 		<data-artifact.prefix>${data-artifact.artifactId}-${data-artifact.version}</data-artifact.prefix>
 		<data-artifact.path-prefix>${project.build.directory}/${data-artifact.prefix}</data-artifact.path-prefix>
-		<deploymentFiles>${data-artifact.path-prefix}-unreasoned-sa.zip,${data-artifact.path-prefix}-reasoned-sa.zip,${data-artifact.path-prefix}-unreasoned-pb.zip,${data-artifact.path-prefix}-reasoned-pb.zip</deploymentFiles>
-		<deploymentClassifiers>unreasoned-sa,reasoned-sa,unreasoned-pb,reasoned-pb</deploymentClassifiers>
-		<deploymentTypes>zip,zip,zip,zip</deploymentTypes>
-		
+		<deploymentFiles>${project.basedir}/pom.xml,${data-artifact.path-prefix}-reasoned-sa.zip,${data-artifact.path-prefix}-unreasoned-pb.zip,${data-artifact.path-prefix}-reasoned-pb.zip</deploymentFiles>
+		<deploymentClassifiers>pipeline,reasoned-sa,unreasoned-pb,reasoned-pb</deploymentClassifiers>
+		<deploymentTypes>xml,zip,zip,zip</deploymentTypes>
 	</properties>
 
 	<build>
@@ -316,9 +315,9 @@
 									<groupId>${data-artifact.groupId}</groupId>
 									<artifactId>${data-artifact.artifactId}</artifactId>
 									<version>${data-artifact.version}</version>
-									<file>${project.basedir}/pom.xml</file>
-									<classifier>pipeline</classifier>
-									<packaging>xml</packaging>
+									<file>${data-artifact.path-prefix}-unreasoned-sa.zip</file>
+									<classifier>unreasoned-sa</classifier>
+									<packaging>zip</packaging>
 									<files>${deploymentFiles}</files>
 									<classifiers>${deploymentClassifiers}</classifiers>
 									<types>${deploymentTypes}</types>
