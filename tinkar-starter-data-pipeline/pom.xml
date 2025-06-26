@@ -27,7 +27,7 @@
 		<deploymentFiles>${project.basedir}/pom.xml,${data-artifact.path-prefix}-reasoned-sa.zip,${data-artifact.path-prefix}-unreasoned-pb.zip,${data-artifact.path-prefix}-reasoned-pb.zip</deploymentFiles>
 		<deploymentClassifiers>pipeline,reasoned-sa,unreasoned-pb,reasoned-pb</deploymentClassifiers>
 		<deploymentTypes>xml,zip,zip,zip</deploymentTypes>
-		<gpg.passPhrase></gpg.passPhrase>
+<!--		<gpg.passPhrase></gpg.passPhrase>-->
 	</properties>
 
 	<build>
