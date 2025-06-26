@@ -298,71 +298,44 @@
 				</property>
 			</activation>
 			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>dev.ikm.build</groupId>
+							<artifactId>central-custom-publishing-maven-plugin</artifactId>
+							<version>0.0.2</version>
+						</plugin>
+					</plugins>
+				</pluginManagement>
 				<plugins>
-<!--					<plugin>-->
-<!--						<groupId>org.apache.maven.plugins</groupId>-->
-<!--						<artifactId>maven-gpg-plugin</artifactId>-->
-<!--						<executions>-->
-<!--							<execution>-->
-<!--								<id>sign-and-deploy-release-artifacts</id>-->
-<!--								<phase>deploy</phase>-->
-<!--								<goals>-->
-<!--									<goal>sign-and-deploy-file</goal>-->
-<!--								</goals>-->
-<!--								<configuration>-->
-<!--									<repositoryId>${repositoryId}</repositoryId>-->
-<!--									<url>https://central.sonatype.org/publish/publish-portal-ossrh-staging-api/</url>-->
-<!--									<groupId>${data-artifact.groupId}</groupId>-->
-<!--									<artifactId>${data-artifact.artifactId}</artifactId>-->
-<!--									<version>${data-artifact.version}</version>-->
-<!--									<file>${data-artifact.path-prefix}-unreasoned-sa.zip</file>-->
-<!--									<classifier>unreasoned-sa</classifier>-->
-<!--									<packaging>zip</packaging>-->
-<!--									<files>${deploymentFiles}</files>-->
-<!--									<classifiers>${deploymentClassifiers}</classifiers>-->
-<!--									<types>${deploymentTypes}</types>-->
-<!--									<pomFile>${project.build.directory}/data-artifact-pom.xml</pomFile>-->
-<!--								</configuration>-->
-<!--							</execution>-->
-<!--						</executions>-->
-<!--					</plugin>-->
 					<plugin>
-						<groupId>dev.ikm.cicd</groupId>
+						<groupId>dev.ikm.build</groupId>
 						<artifactId>central-custom-publishing-maven-plugin</artifactId>
 						<executions>
 							<execution>
-								<id>create-bundle</id>
-								<phase>deploy</phase>
+								<id>create bundle</id>
+								<phase>install</phase>
 								<goals>
 									<goal>create-bundle</goal>
 								</goals>
 								<configuration>
 									<pomFile>${project.build.directory}/data-artifact-pom.xml</pomFile>
 									<artifactFiles>
-										<artifactFile>${project.basedir}/pom.xml</artifactFile>
 										<artifactFile>${data-artifact.path-prefix}-reasoned-sa.zip</artifactFile>
 										<artifactFile>${data-artifact.path-prefix}-unreasoned-pb.zip</artifactFile>
+										<artifactFile>${data-artifact.path-prefix}-unreasoned-sa.zip</artifactFile>
 										<artifactFile>${data-artifact.path-prefix}-reasoned-pb.zip</artifactFile>
-										<!-- Add more artifacts as needed -->
 									</artifactFiles>
 								</configuration>
 							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>dev.ikm.cicd</groupId>
-						<artifactId>central-custom-publishing-maven-plugin</artifactId>
-						<executions>
 							<execution>
-								<id>publish-bundle</id>
+								<id>sign-and-deploy-release-artifacts</id>
 								<phase>deploy</phase>
 								<goals>
 									<goal>publish</goal>
 								</goals>
 								<configuration>
-									<publishingServerId>central</publishingServerId>
-									<autoPublish>true</autoPublish>
-									<deploymentName>${project.groupId}:${project.artifactId}:${project.version}</deploymentName>
+									<publishingServerId>${repositoryId}</publishingServerId>
 								</configuration>
 							</execution>
 						</executions>
