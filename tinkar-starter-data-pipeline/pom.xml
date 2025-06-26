@@ -336,6 +336,8 @@
 								</goals>
 								<configuration>
 									<publishingServerId>${repositoryId}</publishingServerId>
+<!--									<autoPublish>true</autoPublish>-->
+									<waitUntil>uploaded</waitUntil>
 								</configuration>
 							</execution>
 						</executions>
