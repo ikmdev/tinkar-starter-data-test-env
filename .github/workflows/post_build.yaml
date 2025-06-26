@@ -14,7 +14,7 @@ permissions:
 
 env:
   BRANCH_NAME: ${{github.event.workflow_run.head_branch}}
-  GPG_PASSPHRASE_ARG: '-Dgpg.passPhrase=${{secrets.secrets.GPG_PASSPHRASE}}'
+  GPG_PASSPHRASE_ARG: '-Dgpg.passPhrase=${{secrets.GPG_PASSPHRASE}}'
 
 
 jobs:
