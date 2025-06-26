@@ -73,6 +73,7 @@
         <templating-maven-plugin.version>3.0.0</templating-maven-plugin.version>
         <builder-helper-maven-plugin.version>3.6.0</builder-helper-maven-plugin.version>
         <maven-central-staging.url>https://central.sonatype.com</maven-central-staging.url>
+        <central.version>0.0.2</central.version>
     </properties>
 
     <modules>
@@ -82,6 +83,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>dev.ikm.build</groupId>
+                <artifactId>central-custom-publishing-maven-plugin</artifactId>
+                <version>${central.version}</version>
+            </dependency>
             <dependency>
                 <groupId>dev.ikm.tinkar</groupId>
                 <artifactId>entity-provider</artifactId>
