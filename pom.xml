@@ -294,7 +294,7 @@
                         <extensions>true</extensions>
                         <configuration>
                             <publishingServerId>central</publishingServerId>
-                            <autoPublish>false</autoPublish>
+                            <autoPublish>true</autoPublish>
                             <!-- <waitUntil>published</waitUntil> -->
                             <centralBaseUrl>${maven-central-staging.url}</centralBaseUrl>
                         </configuration>
