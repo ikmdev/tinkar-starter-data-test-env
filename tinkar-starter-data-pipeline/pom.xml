@@ -27,6 +27,7 @@
 		<deploymentFiles>${project.basedir}/pom.xml,${data-artifact.path-prefix}-reasoned-sa.zip,${data-artifact.path-prefix}-unreasoned-pb.zip,${data-artifact.path-prefix}-reasoned-pb.zip</deploymentFiles>
 		<deploymentClassifiers>pipeline,reasoned-sa,unreasoned-pb,reasoned-pb</deploymentClassifiers>
 		<deploymentTypes>xml,zip,zip,zip</deploymentTypes>
+		<gpg.passPhrase></gpg.passPhrase>
 	</properties>
 
 	<build>
@@ -303,7 +304,7 @@
 						<plugin>
 							<groupId>dev.ikm.build</groupId>
 							<artifactId>central-custom-publishing-maven-plugin</artifactId>
-							<version>0.0.2</version>
+							<version>0.0.3</version>
 						</plugin>
 					</plugins>
 				</pluginManagement>
@@ -326,6 +327,7 @@
 										<artifactFile>${data-artifact.path-prefix}-unreasoned-sa.zip</artifactFile>
 										<artifactFile>${data-artifact.path-prefix}-reasoned-pb.zip</artifactFile>
 									</artifactFiles>
+									<passPhrase>${gpg.passPhrase}</passPhrase>
 								</configuration>
 							</execution>
 							<execution>
@@ -336,7 +338,7 @@
 								</goals>
 								<configuration>
 									<publishingServerId>${repositoryId}</publishingServerId>
-									<autoPublish>true</autoPublish>
+<!--									<autoPublish>true</autoPublish>-->
 									<waitUntil>uploaded</waitUntil>
 								</configuration>
 							</execution>
